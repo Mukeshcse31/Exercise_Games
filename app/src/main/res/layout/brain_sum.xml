@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BrainSum">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/gameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/playAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:onClick="go"
+            android:text="play again"
+            app:layout_constraintTop_toBottomOf="@id/result"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="409dp" />
+
+        <LinearLayout
+            android:id="@+id/board"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF0B114"
+                android:gravity="start"
+                android:padding="8dp"
+                android:text="0s"
+                android:textSize="32dp" />
+
+            <TextView
+                android:id="@+id/problem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="1 + 2"
+                android:textSize="32dp" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="#AEDCF0"
+                android:gravity="end"
+                android:padding="8dp"
+                android:text="0/0"
+                android:textSize="32dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/result"
+            style="@android:style/Widget.DeviceDefault.Light.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="178dp"
+            android:layout_marginEnd="146dp"
+            android:text="result"
+            android:textSize="22dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/choices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="357dp" />
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/choices"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="visible"
+            app:columnCount="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/board"
+            app:rowCount="2">
+
+            <Button
+                android:id="@+id/choice1"
+                android:background="@android:color/holo_red_light"
+                android:onClick="checkAnswer"
+                android:tag="0"
+                android:text="44"
+                android:textSize="75sp"
+                android:visibility="invisible"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:id="@+id/choice2"
+                android:background="@android:color/holo_purple"
+                android:onClick="checkAnswer"
+                android:tag="1"
+                android:text="22"
+                android:textSize="75sp"
+                android:visibility="invisible"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:id="@+id/choice3"
+                android:background="#FFEB3B"
+                android:onClick="checkAnswer"
+                android:tag="2"
+                android:text="99"
+                android:textSize="75sp"
+                android:visibility="invisible"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+
+            <Button
+                android:id="@+id/choice4"
+                android:background="#5EDA64"
+                android:onClick="checkAnswer"
+                android:tag="3"
+                android:text="88"
+                android:textSize="75sp"
+                android:visibility="invisible"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+
+        </android.support.v7.widget.GridLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="#69E947"
+        android:text="go"
+        android:textSize="75dp"
+        android:visibility="visible"
+        android:onClick="go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="nextPage"
+        android:text="goto List page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table" />
+
+
+</android.support.constraint.ConstraintLayout>
